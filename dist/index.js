@@ -1,19 +1,30 @@
-#!/usr/bin/env node
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const commander_1 = require("commander");
-// Create a new instance of Commander
-const program = new commander_1.Command();
-// Define the version of your CLI tool
-program.version('1.0.0');
-// Define a command with options and description
-program
-    .command('greet <name>')
-    .description('Greet a user')
-    .option('-t, --title <title>', 'Title for the greeting')
-    .action((name, options) => {
-    const title = options.title ? options.title : 'Hello';
-    console.log(`${title}, ${name}!`);
+import { createPromptModule } from "inquirer";
+import data from './data.json' assert { type: 'json' };
+// Extract the options from the imported JSON data
+const frameworksPromptList = data.frameworks;
+const dependenciesPromptList = data.dependencies;
+// Create a list prompt using inquirer
+const prompt = createPromptModule();
+// Define the question collection
+const questions = [
+    {
+        type: "list",
+        name: "frameworkOption",
+        message: "Select a framework:",
+        choices: frameworksPromptList
+    }
+];
+// Display the list of options
+prompt(questions)
+    .then((answers) => {
+    console.log(`You selected: ${answers.frameworkOption}`);
+    // Perform actions based on the selected option
+    switch (answers.frameworkOption) {
+        // You can implement actions here based on the selected option
+        default:
+            console.log("Performing action for", answers.frameworkOption);
+    }
+})
+    .catch((error) => {
+    console.error(error);
 });
-// Parse command line arguments
-program.parse(process.argv);

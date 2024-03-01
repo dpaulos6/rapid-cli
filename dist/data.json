@@ -1,0 +1,30 @@
+{
+    "frameworks": [
+        "React",
+        "Angular",
+        "Vue.js",
+        "Svelte",
+        "Ember.js",
+        "Preact",
+        "Solid",
+        "Astro",
+        "Next.js",
+        "Nuxt.js",
+        "Remix",
+        "Vite"
+    ],
+    "dependencies": [
+        "Aceternity UI",
+        "Chakra UI",
+        "ESLint",
+        "Headless UI",
+        "Heroicons",
+        "Lucide",
+        "Material Icons",
+        "Material-UI",
+        "Prettier",
+        "Shadcn UI",
+        "Tabler",
+        "Tailwind CSS"
+    ]
+}
