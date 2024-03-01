@@ -1,15 +1,17 @@
 {
-  "name": "vilt-cli",
+  "name": "rapid-cli",
   "version": "1.0.0",
-  "description": "Vilt is a simple CLI ",
-  "main": "vilt.js",
-  "type": "module",
+  "description": "A description of your CLI tool",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
-  "author": "",
+  "keywords": [],
+  "author": "dpaulos6",
   "license": "ISC",
-  "dependencies": {
-    "inquirer": "^9.2.15"
+  "devDependencies": {
+    "typescript": "^5.3.3"
   }
 }
