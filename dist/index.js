@@ -1,2 +1,2 @@
-"use strict";
-console.log("Testing CLI");
+"use strict"
+console.log("Testing CLI")
