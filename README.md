@@ -50,4 +50,4 @@ This is the last step, and if you followed everything correctly, you should be a
 npm run start
 ```
 
-If you followed everything correctly and you encounter errors while testing the CLI, please create an issue and provide as much information as you can, as well as the step to reproduce this errors.
+If you followed everything correctly and you encounter errors while testing the CLI, please create an issue and provide as much information as you can, as well as the steps to reproduce this errors.
