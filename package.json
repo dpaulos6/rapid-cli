@@ -2,6 +2,9 @@
   "name": "rapid-cli",
   "version": "1.0.0",
   "description": "A description of your CLI tool",
+  "author": "dpaulos6",
+  "license": "ISC",
+  "keywords": [],
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -9,9 +12,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "dpaulos6",
-  "license": "ISC",
   "devDependencies": {
     "@types/inquirer": "^9.0.7",
     "@types/node": "^20.11.24",
