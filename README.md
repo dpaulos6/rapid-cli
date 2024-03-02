@@ -2,7 +2,7 @@
 
 Rapid CLI is a tool to simplify frontend frameworks installation, and save you the trouble of going to the docs of each dependency/lib and running several commands one by one.
 
-The CLI wont change the process of how each option is installed, but it will combine all commonly used technologies in frontend frameworks, within one single command. 
+The CLI wont change the process of how each option is installed, but it will combine all commonly used technologies in frontend frameworks, within one single command.
 
 You only have to select your favorite options, Rapid will do the rest.
 
@@ -44,7 +44,7 @@ npm run build
 
 ### 4. Test the CLI
 
-This is the last step, and if you followed everything correctly, you should be able to run the CLI with no issues. 
+This is the last step, and if you followed everything correctly, you should be able to run the CLI with no issues.
 
 ```bash
 npm run start

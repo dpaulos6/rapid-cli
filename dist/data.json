@@ -2,16 +2,21 @@
     "frameworks": [
         "React",
         "Angular",
-        "Vue.js",
+        "Vue",
         "Svelte",
-        "Ember.js",
+        "Ember",
         "Preact",
         "Solid",
         "Astro",
-        "Next.js",
-        "Nuxt.js",
+        "Next",
+        "Nuxt",
         "Remix",
         "Vite"
+    ],
+    "procedures": [
+        "Use a template (Clone a public template)",
+        "Use a preset (Pre-installs a list of dependencies)",
+        "Choose manually"
     ],
     "dependencies": [
         "Aceternity UI",
