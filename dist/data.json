@@ -1,10 +1,8 @@
 {
     "frameworks": [
         "React",
-        "Angular",
         "Vue",
         "Svelte",
-        "Ember",
         "Preact",
         "Solid",
         "Astro",

@@ -1,83 +1,54 @@
-import { createPromptModule, QuestionCollection } from "inquirer"
+import { createPromptModule } from "inquirer"
+import { exec } from "child_process"
 import data from "./data.json" assert { type: "json" }
-import presets from "./presets.json" assert { type: "json" }
-import templates from "./templates.json" assert { type: "json" }
 
 // Extract the options from the imported JSON data
 const frameworksPromptList: string[] = data.frameworks
-const proceduresPromptList: string[] = data.procedures
-const proceduresPresetsPromptList: string[] = presets
-const dependenciesPromptList: string[] = data.dependencies
+
+// Define npm commands for each framework
+const npmCommands: { [key: string]: string } = {
+  React: "npx create-next-app@latest",
+  Vue: "npm create vue@latest",
+  Svelte: "npm create svelte@latest",
+  Preact: "npm init preact",
+  Solid: "npx degit solidjs/templates/js",
+  Astro: "npm create astro@latest",
+  Next: "npx create-next-app@latest",
+  Nuxt: "npx nuxi@latest init",
+  Remix: "npx create-remix@latest",
+  Vite: "npm create vite@latest"
+}
 
 // Create a list prompt using inquirer
 const prompt = createPromptModule()
 
 // Define the question collection
-const questions: QuestionCollection = [
+const questions = [
   {
     type: "list",
     name: "frameworkOption",
     message: "Select a framework:",
     choices: frameworksPromptList
-  },
-  {
-    type: "list",
-    name: "procedureOption",
-    message: "Select a procedure:",
-    choices: proceduresPromptList
   }
 ]
 
-// Display the list of options
+// Display the list of options and get user's choice
 prompt(questions)
   .then((answers) => {
-    // Depending on the selected procedure, show a specific list of options
-    switch (answers.procedureOption) {
-      case "Use a template (Clone a public template)":
-        let templateList: string[]
-        switch (answers.frameworkOption) {
-          case "Astro":
-            templateList = templates.astro
-            break
-          default:
-            templateList = templates.default
-        }
+    const selectedFramework = answers.frameworkOption
+    // const npmCommand = npmCommands[selectedFramework];
+    const npmCommand = "npm --version"
 
-        // Show a list of template options
-        prompt([
-          {
-            type: "list",
-            name: "procedureTemplateOption",
-            message: "Select a template:",
-            choices: templateList
-          }
-        ])
-        break
-      case "Use a preset (Pre-installs a list of dependencies)":
-        // Show a list of preset options
-        prompt([
-          {
-            type: "list",
-            name: "procedurePresetOption",
-            message: "Select a preset:",
-            choices: proceduresPresetsPromptList
-          }
-        ])
-        break
-      case "Choose manually":
-        // Show a list of manual selection options
-        prompt([
-          {
-            type: "list",
-            name: "procedureManualOption",
-            message: "Select a manual option:",
-            choices: dependenciesPromptList
-          }
-        ])
-        break
-      default:
-        console.log("No specific action for", answers.procedureOption)
-    }
+    // Execute the npm command
+    exec(npmCommand, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing command: ${error}`)
+        return
+      }
+      console.log(`Command executed successfully: ${npmCommand}`)
+      console.log(`stdout: ${stdout}`)
+      console.error(`stderr: ${stderr}`)
+    })
   })
   .catch((error) => {
     console.error(error)
