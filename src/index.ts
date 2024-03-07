@@ -37,7 +37,7 @@ prompt(questions)
   .then((answers) => {
     const selectedFramework = answers.frameworkOption
     // const npmCommand = npmCommands[selectedFramework];
-    const npmCommand = "npm --version"
+    const npmCommand = "yarn --version"
 
     // Execute the npm command
     exec(npmCommand, (error, stdout, stderr) => {
